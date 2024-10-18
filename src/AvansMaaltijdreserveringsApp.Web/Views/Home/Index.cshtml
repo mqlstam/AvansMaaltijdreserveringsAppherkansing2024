@@ -1,0 +1,173 @@
+﻿@model AvansMaaltijdreserveringsApp.Web.Models.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to Avans Maaltijdreservering</h1>
+        <p class="lead">Discover affordable and delicious meal packages from Avans canteens.</p>
+        <hr class="my-4">
+        <p>Join us in reducing food waste while enjoying great meals at discounted prices!</p>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 id="available-packages">Available Packages</h2>
+            <form asp-action="Index" method="get" class="mb-4">
+                <div class="row">
+                    <div class="col-md-4 mb-2">
+                        <label asp-for="SelectedLocation" class="form-label">Location</label>
+                        <select asp-for="SelectedLocation" asp-items="Model.LocationSelectList" class="form-select">
+                            <option value="">All Locations</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <label asp-for="SelectedMealType" class="form-label">Meal Type</label>
+                        <select asp-for="SelectedMealType" asp-items="Model.MealTypeSelectList" class="form-select">
+                            <option value="">All Meal Types</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Reset Filters</a>
+                    </div>
+                </div>
+            </form>
+            @if (Model.AvailablePackages.Any())
+            {
+                <div class="row">
+                    @foreach (var package in Model.AvailablePackages)
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">@package.Name @(package.Is18Plus ? "<span class='badge bg-warning text-dark'>18+</span>" : "")</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">@package.MealType</h6>
+                                    <p class="card-text">@package.Description</p>
+                                    <ul class="list-unstyled">
+                                        <li><strong>Location:</strong> @package.City - @package.Canteen</li>
+                                        <li><strong>Pickup:</strong> @package.PickupDateTime.ToString("g")</li>
+                                        <li><strong>Deadline:</strong> @package.PickupDeadline.ToString("g")</li>
+                                        <li><strong>Price:</strong> €@package.Price.ToString("F2")</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-primary btn-block">Reserve</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info" role="alert">
+                    No available packages match your criteria. Try adjusting your filters or check back later!
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h2>How It Works</h2>
+            <ol>
+                <li>Browse available meal packages from Avans canteens.</li>
+                <li>Reserve a package that interests you.</li>
+                <li>Pick up your package at the specified time and location.</li>
+                <li>Enjoy your delicious meal while helping reduce food waste!</li>
+            </ol>
+            <h3 class="mt-4">Benefits</h3>
+            <ul>
+                <li>Affordable meals at discounted prices</li>
+                <li>Variety of options from different canteens</li>
+                <li>Contribute to reducing food waste</li>
+                <li>Convenient pickup times and locations</li>
+            </ul>
+        </div>
+        
+        <div class="col-md-6">
+            <h2>How It Works</h2>
+            <ol>
+                <li>Browse available meal packages from Avans canteens.</li>
+                <li>Reserve a package that interests you.</li>
+                <li>Pick up your package at the specified time and location.</li>
+                <li>Enjoy your delicious meal while helping reduce food waste!</li>
+            </ol>
+            <h3 class="mt-4">Benefits</h3>
+            <ul>
+                <li>Affordable meals at discounted prices</li>
+                <li>Variety of options from different canteens</li>
+                <li>Contribute to reducing food waste</li>
+                <li>Convenient pickup times and locations</li>
+            </ul>
+        </div>
+    </div>
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2>Your Reserved Packages</h2>
+                @if (Model.ReservedPackages.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Package Name</th>
+                                    <th>Pickup Time</th>
+                                    <th>Location</th>
+                                    <th>Price</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var package in Model.ReservedPackages)
+                                {
+                                    <tr>
+                                        <td>@package.Name</td>
+                                        <td>@package.PickupDateTime.ToString("g")</td>
+                                        <td>@package.City - @package.Canteen</td>
+                                        <td>€@package.Price.ToString("F2")</td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-info">Details</a>
+                                            <a href="#" class="btn btn-sm btn-danger">Cancel</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <p>You haven't reserved any packages yet. Start browsing and reserve your first package!</p>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <h3>Ready to start saving on meals?</h3>
+                <p>Log in or create an account to reserve packages and enjoy discounted meals!</p>
+                <a href="/Account/Login" class="btn btn-primary mr-2">Log In</a>
+                <a href="/Account/Register" class="btn btn-success">Register</a>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Auto-submit form when filters change
+            $('#SelectedLocation, #SelectedMealType').change(function() {
+                $(this).closest('form').submit();
+            });
+        });
+    </script>
+}

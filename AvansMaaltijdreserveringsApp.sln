@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{28321663-82D7-49A3-959A-C69951C5BEA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvansMaaltijdreserveringsApp.Domain", "src\AvansMaaltijdreserveringsApp.Domain\AvansMaaltijdreserveringsApp.Domain.csproj", "{A9348400-C094-48AA-A18E-91B50B1ED8F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvansMaaltijdreserveringsApp.Infrastructure", "src\AvansMaaltijdreserveringsApp.Infrastructure\AvansMaaltijdreserveringsApp.Infrastructure.csproj", "{7BC0E8BD-8621-4F2B-BBF3-D9287B268F8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvansMaaltijdreserveringsApp.API", "src\AvansMaaltijdreserveringsApp.API\AvansMaaltijdreserveringsApp.API.csproj", "{44EA521F-9D59-44AA-B1E6-2C3104C1EACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvansMaaltijdreserveringsApp.Web", "src\AvansMaaltijdreserveringsApp.Web\AvansMaaltijdreserveringsApp.Web.csproj", "{2F0209A1-A932-46CA-B87C-7D511388E8F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9348400-C094-48AA-A18E-91B50B1ED8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9348400-C094-48AA-A18E-91B50B1ED8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9348400-C094-48AA-A18E-91B50B1ED8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9348400-C094-48AA-A18E-91B50B1ED8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC0E8BD-8621-4F2B-BBF3-D9287B268F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC0E8BD-8621-4F2B-BBF3-D9287B268F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC0E8BD-8621-4F2B-BBF3-D9287B268F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC0E8BD-8621-4F2B-BBF3-D9287B268F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44EA521F-9D59-44AA-B1E6-2C3104C1EACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44EA521F-9D59-44AA-B1E6-2C3104C1EACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44EA521F-9D59-44AA-B1E6-2C3104C1EACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44EA521F-9D59-44AA-B1E6-2C3104C1EACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0209A1-A932-46CA-B87C-7D511388E8F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0209A1-A932-46CA-B87C-7D511388E8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0209A1-A932-46CA-B87C-7D511388E8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0209A1-A932-46CA-B87C-7D511388E8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A9348400-C094-48AA-A18E-91B50B1ED8F1} = {28321663-82D7-49A3-959A-C69951C5BEA8}
+		{7BC0E8BD-8621-4F2B-BBF3-D9287B268F8E} = {28321663-82D7-49A3-959A-C69951C5BEA8}
+		{44EA521F-9D59-44AA-B1E6-2C3104C1EACD} = {28321663-82D7-49A3-959A-C69951C5BEA8}
+		{2F0209A1-A932-46CA-B87C-7D511388E8F0} = {28321663-82D7-49A3-959A-C69951C5BEA8}
+	EndGlobalSection
+EndGlobal
